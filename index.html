@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exquisite Music Experience</title>
+  <!-- Google Fonts for modern typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and base styling */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #1f4037, #99f2c8);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header {
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      aspect-ratio: 16 / 9;
+      margin-bottom: 40px;
+      border: 5px solid #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .animate-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    #animateMe {
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, #ff6ec4, #7873f5);
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      transform: scale(1);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    #animateBtn {
+      padding: 15px 30px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 50px;
+      background: #fff;
+      color: #333;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    #animateBtn:hover {
+      background: #e0e0e0;
+      transform: scale(1.05);
+    }
+
+    /* Responsive styling */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      #animateMe {
+        width: 120px;
+        height: 120px;
+      }
+      #animateBtn {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Exquisite Music Experience</h1>
+  </header>
+
+  <div class="video-container">
+    <!-- Embedded YouTube video -->
+    <iframe 
+      src="https://www.youtube.com/embed/KDorKy-13ak" 
+      title="YouTube video player" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <div class="animate-section">
+    <button id="animateBtn">Animate</button>
+    <div id="animateMe"></div>
+  </div>
+
+  <script>
+    // JavaScript: Animate the element on button click
+    const animateBtn = document.getElementById('animateBtn');
+    const animateMe = document.getElementById('animateMe');
+
+    animateBtn.addEventListener('click', () => {
+      // Scale up and enhance the box shadow
+      animateMe.style.transform = 'scale(1.3)';
+      animateMe.style.boxShadow = '0 0 25px rgba(0,0,0,0.4)';
+      // Revert to the original state after 600ms
+      setTimeout(() => {
+        animateMe.style.transform = 'scale(1)';
+        animateMe.style.boxShadow = '0 0 15px rgba(0,0,0,0.2)';
+      }, 600);
+    });
+  </script>
+</body>
+</html>
